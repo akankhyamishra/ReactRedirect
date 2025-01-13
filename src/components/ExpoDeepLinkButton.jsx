@@ -2,8 +2,10 @@ import React, { useEffect } from 'react';
 import '../App.css';
 
 const DeepLinkRedirect = () => {
+
+  console.log("DeepLinkRedirect")
   useEffect(() => {
-    const deepLinkUrl = 'myapp://open/?url=https%3A%2F%2Fmywebsite.com%2Fapp-deeplink';
+    const deepLinkUrl = 'neodisha://opensdk/?url=https%3A%2F%2Fmywebsite.com%2Fapp-deeplink';
 
     window.location.href = deepLinkUrl;
 
@@ -12,6 +14,8 @@ const DeepLinkRedirect = () => {
     meta.content = `0; url=${deepLinkUrl}`;
     document.head.appendChild(meta);
   }, []);
+
+  //console.log("deep link activated", deepLinkUrl)
 
   return (
     <div className="container">
