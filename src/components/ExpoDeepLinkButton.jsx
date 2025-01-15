@@ -6,6 +6,7 @@ const DeepLinkRedirect = () => {
   console.log("DeepLinkRedirect")
   useEffect(() => {
     const deepLinkUrl = 'neodisha://opensdk/?url=https%3A%2F%2Fmywebsite.com%2Fapp-deeplink';
+    const fallbackUrl = 'http://192.168.29.246:5173/my-app/'; 
 
     window.location.href = deepLinkUrl;
 
@@ -13,9 +14,12 @@ const DeepLinkRedirect = () => {
     meta.httpEquiv = 'refresh';
     meta.content = `0; url=${deepLinkUrl}`;
     document.head.appendChild(meta);
-  }, []);
 
-  //console.log("deep link activated", deepLinkUrl)
+    setTimeout(() => {
+      window.location.href = fallbackUrl;
+    }, 5000); 
+
+  }, []);
 
   return (
     <div className="container">
